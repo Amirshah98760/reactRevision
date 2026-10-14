@@ -1,10 +1,14 @@
 import { useState } from "react";
+import {Link} from "react-router-dom";
+
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "Features", href: "#features" },
-  { name: "Projects", href: "#projects" },
-  { name: "About", href: "#about" },
+  { name: "Home", to: "/" },
+  { name: "Features", to: "/features" },
+  { name: "Projects", to: "/projects" },
+  { name: "About", to: "/about" },
+  { name: "Contact", to: "/contact" },
+
 ];
 
 export default function Navbar() {
@@ -17,8 +21,8 @@ export default function Navbar() {
         aria-label="Main navigation"
       >
         {/* Logo */}
-        <a
-          href="#home"
+        <Link
+          to="/"
           className="flex items-center gap-2"
           aria-label="DevFlow home"
         >
@@ -29,36 +33,36 @@ export default function Navbar() {
           <span className="text-xl font-bold tracking-tight text-gray-900">
             Dev<span className="text-blue-600">Flow</span>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
+              to={link.to}
               className="text-sm font-medium text-gray-600 transition-colors hover:text-blue-600"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </div>
 
         {/* Desktop Actions */}
         <div className="hidden items-center gap-4 md:flex">
-          <a
-            href="#login"
+          <Link
+            to="#login"
             className="text-sm font-semibold text-gray-700 transition-colors hover:text-blue-600"
           >
             Login
-          </a>
+          </Link>
 
-          <a
-            href="#get-started"
+          <Link
+            to  ="#get-started"
             className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
             Get Started
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -114,14 +118,14 @@ export default function Navbar() {
         >
           <div className="mx-auto flex max-w-7xl flex-col gap-2">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.to}
                 onClick={() => setIsOpen(false)}
                 className="rounded-lg px-3 py-3 text-sm font-medium text-gray-700 transition hover:bg-blue-50 hover:text-blue-600"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
 
             <div className="mt-2 flex flex-col gap-3 border-t border-gray-200 pt-4">
