@@ -51,7 +51,7 @@ export default function Navbar() {
         {/* Desktop Actions */}
         <div className="hidden items-center gap-4 md:flex">
           <Link
-            to="#login"
+            to="/login"
             className="text-sm font-semibold text-gray-700 transition-colors hover:text-blue-600"
           >
             Login
