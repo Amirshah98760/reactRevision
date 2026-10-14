@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [name, setName] = useState("");
@@ -10,6 +11,9 @@ function App() {
   }
 
   return (
+    <>
+      <Navbar />
+    <main className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
    < div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
     <form onSubmit={handleSubmit}>
       <input
@@ -26,6 +30,8 @@ function App() {
       <p>{name}</p>
     </form>
       </div>
+ </main>
+ </>
   );
 }
 
